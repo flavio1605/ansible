@@ -1,0 +1,14 @@
+---
+
+- name: "Instalacao do nginx"
+  hosts: desenvolvimento 
+  tasks:
+    - name: "Instalando o nginx e garantindo que o nginx esteja na versão mais recente!"
+      yum: name=nginx state=latest
+      notify:
+        - start nginx
+  # Garantindo que o nginx esteja rodando e ative durante o boot do sistema!
+  handlers:
+     - name: "start nginx"
+       service: name=nginx state=started enabled=yes
+  tags: install-nginx
