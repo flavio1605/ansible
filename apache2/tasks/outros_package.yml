@@ -1,0 +1,8 @@
+--- 
+- name: 
+  hosts: operacao
+
+
+  tasks:
+    - name: Install the Python MySQLB module
+      pip: name=MySQL-python

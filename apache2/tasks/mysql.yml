@@ -1,0 +1,10 @@
+---
+- hosts: operacao
+
+  tasks:
+    - name: Criando usuario
+      mysql_user: name=apache password=1234 priv=*.*:ALL state=present
+      
+    - name: criando banco
+      mysql_db: name=giropops state=present
+

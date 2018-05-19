@@ -1,0 +1,18 @@
+---
+- name: iniciando instalação do apache2 e MySql
+  hosts: operacao
+
+  tasks:
+    - name: instalando apache2
+      apt: name={{ item }} update_cache=yes  autoclean=yes state=present
+
+      with_items:
+        - apache2
+        - mysql-server
+    
+    - name: iniciando apache2
+      service: name=apache2 state=running enabled=yes
+      
+    - name: iniciando mysql-server
+      service: name=mysql state=running enabled=yes
+
