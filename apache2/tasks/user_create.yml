@@ -1,0 +1,11 @@
+---
+- name: criando usuarios no sistema
+  hosts: operacao
+
+  tasks:
+    - user: name={{ item }}  shell=/bin/bash/  group=administradores groups=administradores  append=yes
+  
+      with_items:
+        - lais
+        - lorena
+        - vanessa
